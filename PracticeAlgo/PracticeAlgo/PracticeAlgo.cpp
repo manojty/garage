@@ -7,18 +7,30 @@
 using namespace std;
 
 
-int main()
+void quickSort(int a[10], int s, int e)
 {
-	arrayAlgo();
-	return 0;
-}
+	if (s == e || s > e) return;
 
+	int pivot = a[s];
+	int i = s; int j = e;
+
+	while (i < j)
+	{
+		while (a[i] <= pivot && i<=j) { i++; }
+		while (a[j] >= pivot && i <= j) { j--; }
+		if (i > j) { i--; }
+		if (j < i) { j++; }
+		if (i < j) { int tmp = a[i]; a[i] = a[j]; a[j] = tmp; }
+		if (i == j) { a[s] = a[i];  a[i] = pivot; quickSort(a, s, i - 1); quickSort(a, i + 1, e); }
+	}
+
+}
 
 void arrayAlgo()
 {
 
 	int i;
-	//int spiral[SIZE_ROWS][SIZE_COLS] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16} };
+	/*int spiral[SIZE_ROWS][SIZE_COLS] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16} }; */
 	int spiral[SIZE_ROWS][SIZE_COLS] = { { 1,2,3,4 } };
 	printSpiral(spiral, SIZE_ROWS, SIZE_COLS);
 	cin >> i;
@@ -82,4 +94,12 @@ void printSpiral(int a[SIZE_ROWS][SIZE_COLS], int rows, int cols)
 
 	}
 
+}
+
+int main()
+{
+	//arrayAlgo();
+	int a[10] = {10,9,8,7,6,5,4,3,2,1};
+	quickSort(a, 0, 9);
+	return 0;
 }
