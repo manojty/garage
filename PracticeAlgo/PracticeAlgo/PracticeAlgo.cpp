@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "PracticeAlgo.h"
+#include "Tree.h"
 
 using namespace std;
 
@@ -99,7 +100,16 @@ void printSpiral(int a[SIZE_ROWS][SIZE_COLS], int rows, int cols)
 int main()
 {
 	//arrayAlgo();
-	int a[10] = {10,9,8,7,6,5,4,3,2,1};
-	quickSort(a, 0, 9);
+	//int a[10] = {10,9,8,7,6,5,4,3,2,1};
+	//quickSort(a, 0, 9);
+	treeNode* rootNode = nullptr;
+	buildBSTTree(&rootNode, inputBSTNodes);
+	vector<int> inorderTraversal;
+	vector<int> preTraversal;
+	vector<int> postTraversal;
+	inorder(rootNode, inorderTraversal);
+	preorder(rootNode, preTraversal);
+	postorder(rootNode, postTraversal);
+	printTraversal(inorderTraversal, preTraversal, postTraversal);
 	return 0;
 }

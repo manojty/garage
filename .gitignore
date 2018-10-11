@@ -3,3 +3,7 @@
 ################################################################################
 
 /PracticeAlgo/PracticeAlgo/.vs/PracticeAlgo/v14
+/PracticeAlgo/PracticeAlgo/ipch/PRACTICEALGO-b969ed20
+/PracticeAlgo/PracticeAlgo/x64/Debug
+*.db
+*.opendb
